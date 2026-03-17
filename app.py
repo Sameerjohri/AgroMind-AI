@@ -6,6 +6,7 @@ from data.state_data import state_data
 from data.price_data import base_prices
 import joblib
 import requests
+import os
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -288,5 +289,6 @@ def cropsInfo():
 # Run App
 # -----------------------------
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
